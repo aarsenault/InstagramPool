@@ -14,3 +14,7 @@
 .headerlogo{
   max-width: 100px;
 }
+
+.call {
+  cursor: pointer;
+}
