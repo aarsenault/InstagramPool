@@ -9,9 +9,9 @@ const Header = (props) => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bkpurp mb-3 py-0">
       <div className="container">
-        <a href="/" className="navbar-brand">
-        <img src={logo} className="headerlogo" />
-        </a>
+        <Link to="/" className="navbar-brand">
+         <img src={logo} className="headerlogo" />
+        </Link>
         <div>
           <ul className="navbar-nav mr-auto">
 
@@ -20,18 +20,6 @@ const Header = (props) => {
                 <i className="fas fa-home"></i> Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/contact/add" className="nav-link">
-              <i className="fas fa-plus"></i> Add
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">
-              <i className="fas fa-question"></i> About
-              </Link>
-            </li>
-
           </ul>
         </div>
       </div>
