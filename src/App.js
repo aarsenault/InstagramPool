@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Contacts from './components/contacts/Contacts';
 import Home from './components/home/Home.js';
+import Feed from './components/feed/Feed.js';
 import {Provider} from './context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
               <div className="container">
                 <Switch>
                   <Route exact path="/" component={Home} />
+                  <Route exact path="/feed" component={Feed} />
                   <Route exact path="/about" component={About} />
                   <Route component={NotFound} />
                 </Switch>

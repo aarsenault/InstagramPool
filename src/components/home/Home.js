@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+
+const FEED = '/feed';
 
 export default class Home extends Component {
 
@@ -8,12 +11,10 @@ export default class Home extends Component {
         <div>
           Logo
         </div>
-        <button type="button" className="btn btn-dark" onClick={makePhoneCall}>Start</button>
+        <Link to={FEED}>
+          <button type="button" className="btn btn-dark">Start</button>
+        </Link>
       </div>
     );
   }
-}
-
-const makePhoneCall = () => {
-  console.log('call Adriel');
 }
