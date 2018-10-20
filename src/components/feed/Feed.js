@@ -32,7 +32,7 @@ export default class Feed extends Component {
   }
 
   nextPhoto = () => {
-    this.setState({ currentImage: this.state.currentImage + 1})
+    this.setState({ currentImage: (this.state.currentImage + 1) % images.length})
   }
 }
 
