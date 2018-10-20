@@ -16,10 +16,21 @@ export default class Header extends Component {
           </a>
           <div>
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <div className="nav-link call" onClick={this.props.handleCall}>
-                  {this.props.onPhone ? "Disconnect" : "Call"}
-                </div>
+              <li className="nav-item" >
+                  {this.props.onPhone ?
+                    (
+
+                      <div className="nav-link" onClick={this.props.handleCall}>
+                        <i className="fas fa-phone-slash"></i> Disconect
+                      </div>
+                    )
+                    :
+                    (
+                      <div className="nav-link" onClick={this.props.handleCall}>
+                        <i className="fas fa-phone"></i> Call
+                      </div>
+                    )
+                  }
               </li>
               <li className="nav-item">
                 <Link to="/" className="nav-link">
