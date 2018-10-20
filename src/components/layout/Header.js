@@ -34,18 +34,6 @@ export default class Header extends Component {
                   <i className="fas fa-home"></i> Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/contact/add" className="nav-link">
-                <i className="fas fa-plus"></i> Add
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to="/about" className="nav-link">
-                <i className="fas fa-question"></i> About
-                </Link>
-              </li>
-
             </ul>
           </div>
         </div>
@@ -57,11 +45,13 @@ export default class Header extends Component {
     // Fetch window.Twilio token
     if (!this.state.onPhone) {
       this.setState({onPhone: true})
+      let that = this;
       axios.post('https://safe-inlet-79187.herokuapp.com/token/generate')
         .then((response) => {
           console.log(response);
           window.Twilio.Device.setup(response.data.token);
           window.Twilio.Device.disconnect(function() {
+            that.setState({onPhone: false});
             window.Twilio.Device.disconnectAll();
           });
           window.Twilio.Device.ready(function() {

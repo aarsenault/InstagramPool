@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './style.css';
+import logo from '../../logos/logo.png';
 
 const importAll = (r) => {
   return r.keys().map(r);
@@ -23,6 +24,9 @@ export default class Feed extends Component {
       <div>
         <img className="gramPic" src={images[this.state.currentImage]} alt="instagram" />
         <button type="button" className="btn btn-dark" onClick={this.nextPhoto}>Next</button>
+        <div>
+          <img src={logo} className="toplogo"></img>
+        </div>
       </div>
     );
   }
