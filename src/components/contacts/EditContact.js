@@ -59,7 +59,8 @@ export default class EditContact extends Component {
     }
     const { id } = this.props.match.params;
 
-    const res = await axios.put(`hlttps://jsonplaceholder.typicode.com/users/${id}`, updContact);
+
+    const res = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updContact);
 
 
     dispatch({ type: 'UPDATE_CONTACT', payload: res.data })
@@ -82,36 +83,36 @@ export default class EditContact extends Component {
           const { dispatch } = value;
           return (
             <div className="card mb-3">
-            <div className='card-header'> Edit Contact </div>
+            <div className='card-header'> <h1> Edit Contact </h1> </div>
             <div className='card-body'>
               <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-              <TextInputGroup
-                label="Name"
-                name = "name"
-                placeholder = "Enter Name"
-                value= {name}
-                onChange = {this.onChange}
-                error={errors.name}
-              />
+                <TextInputGroup
+                  label="Name"
+                  name = "name"
+                  placeholder = "Enter Name"
+                  value= {name}
+                  onChange = {this.onChange}
+                  error={errors.name}
+                />
 
-              <TextInputGroup
-                label="Email"
-                name = "email"
-                type ="email"
-                placeholder = "Enter Email"
-                value= {email}
-                onChange = {this.onChange}
-                error = {errors.email}
-              />
+                <TextInputGroup
+                  label="Email"
+                  name = "email"
+                  type ="email"
+                  placeholder = "Enter Email"
+                  value= {email}
+                  onChange = {this.onChange}
+                  error = {errors.email}
+                />
 
-              <TextInputGroup
-                label="Phone"
-                name = "phone"
-                placeholder = "Enter Phone"
-                value= {phone}
-                onChange = {this.onChange}
-                error = {errors.phone}
-              />
+                <TextInputGroup
+                  label="Phone"
+                  name = "phone"
+                  placeholder = "Enter Phone"
+                  value= {phone}
+                  onChange = {this.onChange}
+                  error = {errors.phone}
+                />
 
                 <input
                   type="submit"
@@ -120,8 +121,7 @@ export default class EditContact extends Component {
                 />
 
               </form>
-            </div>
-              <h1> Update Contact </h1>
+              </div>
             </div>
           )
         }}
