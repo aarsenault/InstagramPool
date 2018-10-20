@@ -1,0 +1,34 @@
+.mainlogo{
+
+  width: 400px;
+}
+
+.textlogocontainer{
+  margin: 20px;
+}
+
+
+.logo{
+  margin: auto;
+  max-width: 400px;
+
+}
+
+/* .logocontainer{
+  margin: auto;
+} */
+
+
+.maincontent{
+  max-width: 400px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-right:auto;
+}
+
+p {
+  margin-top: 30px;
+  max-width: 400px;
+  align-self: center;
+}
