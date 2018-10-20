@@ -11,7 +11,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-      <h1>Get Started With </h1>
+      <h1>Welcome back @GlitterGurl7 </h1>
 
         <div className="textlogocontainer">
           <img src={textlogo} className="mainlogo"></img>
@@ -27,7 +27,7 @@ export default class Home extends Component {
 
         <div className="maincontent">
           <p className="maincontent">
-            Earn money by browsing instagram while making the world more connected and bring people together while solving important social issues and being your own boss and helping others and share experiences while being paid to browse instagram!
+            Earn money by browsing instagram while making the world more connected and bring people together while solving important social issues and being your own boss and helping others and be flexible in your own schedule and share experiences while being paid to browse instagram!
           </p>
         </div>
       </div>

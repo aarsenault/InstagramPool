@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 import Header from './components/layout/Header';
+import FooterPage from './components/layout/FooterPage';
 import About from './components/pages/About';
 import NotFound from './components/pages/NotFound';
 
@@ -34,6 +35,7 @@ class App extends Component {
                   <Route component={NotFound} />
                 </Switch>
               </div>
+            <FooterPage/>
           </div>
         </Router>
       </Provider>
