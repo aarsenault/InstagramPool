@@ -1,54 +1,79 @@
-import React from 'react'
-import propTypes from 'prop-types';
+import React, { Component } from 'react';
+import axios from 'axios';
+
 import { Link } from 'react-router-dom';
 import './styles.css';
 import logo from '../../logos/instapoolpurplogo.png';
 
-const Header = (props) => {
-  const {branding} = props;
-  return (
-    <nav className="navbar navbar-expand-sm navbar-dark bkpurp mb-3 py-0">
-      <div className="container">
-        <a href="/" className="navbar-brand">
-        <img src={logo} className="headerlogo" />
-        </a>
-        <div>
-          <ul className="navbar-nav mr-auto">
+export default class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      onPhone: false
+    };
+    this.handleCall = this.handleCall.bind(this);
+  }
 
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                <i className="fas fa-home"></i> Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/contact/add" className="nav-link">
-              <i className="fas fa-plus"></i> Add
-              </Link>
-            </li>
+  render() {
+    const {branding} = this.props;
+    return (
+      <nav className="navbar navbar-expand-sm navbar-dark bkpurp mb-3 py-0">
+        <div className="container">
+          <a href="/" className="navbar-brand">
+          <img src={logo} className="headerlogo" />
+          </a>
+          <div>
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <div className="nav-link call" onClick={this.handleCall}>
+                  {this.state.onPhone ? "Disconnect" : "Call"}
+                </div>
+              </li>
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  <i className="fas fa-home"></i> Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/contact/add" className="nav-link">
+                <i className="fas fa-plus"></i> Add
+                </Link>
+              </li>
 
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">
-              <i className="fas fa-question"></i> About
-              </Link>
-            </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link">
+                <i className="fas fa-question"></i> About
+                </Link>
+              </li>
 
-          </ul>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    )
+  }
 
-  )
+  handleCall = () => {
+    // Fetch window.Twilio token
+    if (!this.state.onPhone) {
+      this.setState({onPhone: true})
+      axios.post('https://safe-inlet-79187.herokuapp.com/token/generate')
+        .then((response) => {
+          console.log(response);
+          window.Twilio.Device.setup(response.data.token);
+          window.Twilio.Device.disconnect(function() {
+            window.Twilio.Device.disconnectAll();
+          });
+          window.Twilio.Device.ready(function() {
+            const n = '+16476884244';
+            window.Twilio.Device.connect({ phoneNumber: n });
+          });
+        })
+    }
+    else {
+      this.setState({onPhone: false})
+      window.Twilio.Device.disconnectAll();
+    }
+  }
+
 }
-
-
-Header.defaaultProps = {
-  branding: "My App"
-}
-
-Header.propTypes = {
-  branding: propTypes.string.isRequired
-};
-
-
-
-export default Header;
