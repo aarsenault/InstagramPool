@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logo.png';
-import textlogo from '../../images/instapool.png';
+import logo from '../../logos/logo.png';
+import textlogo from '../../logos/instapool.png';
 import './styles.css';
 
 

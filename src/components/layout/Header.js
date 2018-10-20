@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './styles.css';
-import logo from '../../images/instapoolpurplogo.png';
+import logo from '../../logos/instapoolpurplogo.png';
 
 const Header = (props) => {
   const {branding} = props;
