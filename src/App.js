@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch} from 'react-router-dom';
-import Contacts from './components/contacts/Contacts';
 import Home from './components/home/Home.js';
 import Feed from './components/feed/Feed.js';
 import {Provider} from './context';

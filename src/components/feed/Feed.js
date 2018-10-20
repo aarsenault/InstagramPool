@@ -22,7 +22,7 @@ export default class Feed extends Component {
         <div>
           Logo
         </div>
-        <img src={images[this.state.currentImage]}/>
+        <img src={images[this.state.currentImage]} alt="instagram" />
         <button type="button" className="btn btn-dark" onClick={this.nextPhoto}>Next</button>
       </div>
     );
