@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-const axios = require('axios');
 
+const axios = require('axios');
 
 const importAll = (r) => {
   return r.keys().map(r);
@@ -18,31 +18,19 @@ export default class Feed extends Component {
     this.nextPhoto = this.nextPhoto.bind(this);
   }
 
-  handleToggleCall = () => {
-    // if (!this.state.onPhone) {
-    //   this.setState({
-    //     muted: false,
-    //     onPhone: true
-    //   })
-      // make outbound call with current number
-      // var n = '+' + this.state.countryCode + this.state.currentNumber.replace(/\D/g, '');
-    // this.setState({log: 'Calling ' + n})
-    // } else {
-    //   // hang up call in progress
-    //   window.Twilio.Device.disconnectAll();
-    // }
-  }
-
   componentDidMount() {
     // Fetch window.Twilio token
     axios.post('https://safe-inlet-79187.herokuapp.com/token/generate')
       .then((response) => {
         console.log(response);
         window.Twilio.Device.setup(response.data.token);
+        window.Twilio.Device.disconnect(function() {
+          window.Twilio.Device.disconnectAll();
+          window.location.href = `${window.location.origin}/home`;
+        });
         window.Twilio.Device.ready(function() {
           const n = '+16476884244';
           window.Twilio.Device.connect({ phoneNumber: n });
-
         });
       })
   }
