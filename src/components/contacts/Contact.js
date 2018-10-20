@@ -49,7 +49,7 @@ class Contact extends Component {
                   style={{
                       cursor: 'pointer',
                       float: 'right',
-                      color: 'red'
+                      color: '#321777'
                     }}
                   onClick={this.onDeleteClick.bind(this, id, dispatch)}
                 />
